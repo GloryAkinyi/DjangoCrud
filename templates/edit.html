@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<h1>Update Information</h1>
+<form method="POST" action="/update/{{ student.id }}" class="p-5">
+    {% csrf_token %}
+    <label for="fname" class="form-label">Firstname</label>
+    <input type="text" id="fname" name="firstname" value="{{ student.firstname }}" class="form-control">
+
+     <label for="lname" class="form-label">Lastname</label>
+    <input type="text" id="lname" name="lastname" value="{{ student.lastname }}" class="form-control">
+
+     <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" value="{{ student.email }}" class="form-control">
+    <br><br>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+</body>
+</html>
+{% endblock %}
